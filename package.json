@@ -1,0 +1,37 @@
+{
+  "name": "spike-html-standards",
+  "description": "standard plugin pack for reshape",
+  "version": "0.0.0",
+  "author": "static-dev",
+  "ava": {
+    "verbose": "true"
+  },
+  "bugs": "https://github.com/static-dev/spike-html-standards/issues",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "coveralls": "2.x",
+    "nyc": "^8.1.0",
+    "reshape": "^0.3.0",
+    "standard": "7.x"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "homepage": "https://github.com/static-dev/spike-html-standards",
+  "license": "MIT",
+  "main": "lib",
+  "repository": "static-dev/spike-html-standards",
+  "scripts": {
+    "test": "ava",
+    "lint": "standard",
+    "coverage": "nyc ava",
+    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls"
+  },
+  "dependencies": {
+    "reshape-content": "^0.1.1",
+    "reshape-expressions": "^0.1.0",
+    "reshape-include": "^0.1.0",
+    "reshape-layouts": "^0.2.1",
+    "reshape-retext": "^0.1.1"
+  }
+}
