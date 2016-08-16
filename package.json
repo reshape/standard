@@ -30,11 +30,13 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
+    "markdown-it": "^7.0.0",
     "reshape-content": "^0.1.1",
     "reshape-expressions": "^0.1.0",
     "reshape-include": "^0.1.0",
     "reshape-layouts": "^0.2.1",
     "reshape-retext": "^0.1.1",
+    "retext-smartypants": "^2.0.0",
     "sugarml": "^0.2.0"
   }
 }
