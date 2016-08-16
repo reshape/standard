@@ -2,7 +2,7 @@
   "name": "spike-html-standards",
   "description": "standard plugin pack for reshape",
   "version": "0.0.0",
-  "author": "static-dev",
+  "author": "Jeff Escalante",
   "ava": {
     "verbose": "true"
   },
@@ -13,6 +13,7 @@
     "nyc": "^8.1.0",
     "reshape": "^0.3.0",
     "rewire": "^2.5.2",
+    "snazzy": "^4.0.1",
     "standard": "7.x"
   },
   "engines": {
@@ -23,10 +24,10 @@
   "main": "lib",
   "repository": "static-dev/spike-html-standards",
   "scripts": {
-    "test": "ava",
-    "lint": "standard",
-    "coverage": "nyc ava",
-    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls"
+    "test": "nyc ava",
+    "lint": "standard | snazzy",
+    "coverage": "nyc ava && nyc report --reporter=html && open ./coverage/index.html",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "reshape-content": "^0.1.1",

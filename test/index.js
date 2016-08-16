@@ -1,28 +1,29 @@
 const test = require('ava')
 const rewire = require('rewire')
-const htmlStandards = rewire('..')
+const htmlStandardsRewired = rewire('..')
+const htmlStandards = require('..')
 
 test('options passed correctly', (t) => {
-  htmlStandards.__set__('content', (opts) => {
+  htmlStandardsRewired.__set__('content', (opts) => {
     t.truthy(opts.md === 'test')
   })
-  htmlStandards.__set__('include', (opts) => {
+  htmlStandardsRewired.__set__('include', (opts) => {
     t.truthy(opts.root === 'test')
     t.truthy(opts.addDependencyTo === 'test')
   })
-  htmlStandards.__set__('layouts', (opts) => {
+  htmlStandardsRewired.__set__('layouts', (opts) => {
     t.truthy(opts.root === 'test')
     t.truthy(opts.addDependencyTo === 'test')
   })
-  htmlStandards.__set__('expressions', (opts) => {
+  htmlStandardsRewired.__set__('expressions', (opts) => {
     t.truthy(opts.delimiters === 'test')
     t.truthy(opts.unescapeDelimiters === 'test')
   })
-  htmlStandards.__set__('retext', (opts) => {
+  htmlStandardsRewired.__set__('retext', (opts) => {
     t.truthy(opts.length === 3)
   })
 
-  const out = htmlStandards({
+  const out1 = htmlStandardsRewired({
     sugarml: true,
     root: 'test',
     webpack: { resourcePath: 'test', addDependencyTo: 'test' },
@@ -33,8 +34,15 @@ test('options passed correctly', (t) => {
     retext: [1, 2, 3]
   })
 
-  t.truthy(out.parser)
-  t.truthy(out.locals)
-  t.truthy(out.filename === 'test')
-  t.truthy(out.plugins.length === 5)
+  const out2 = htmlStandards({
+    addDependencyTo: { addDependency: (x) => x },
+    locals: 'true',
+    content: { md: 'test' }
+  })
+
+  t.truthy(out1.parser)
+  t.truthy(out1.locals)
+  t.truthy(out1.filename === 'test')
+  t.truthy(out1.plugins.length === 5)
+  t.falsy(out2.parser)
 })
