@@ -4,7 +4,7 @@
 
 [Spike html standards](https://spike.readme.io/docs/html-standards) plugin pack for reshape
 
-> **Note:** This project is in8 early development, and versioning is a little different. [Read this](http://markup.im/#q4_cRZ1Q) for more details.
+> **Note:** This project is in early development, and versioning is a little different. [Read this](http://markup.im/#q4_cRZ1Q) for more details.
 
 ### Installation
 
