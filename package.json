@@ -12,6 +12,7 @@
     "coveralls": "2.x",
     "nyc": "^8.1.0",
     "reshape": "^0.3.0",
+    "rewire": "^2.5.2",
     "standard": "7.x"
   },
   "engines": {
@@ -32,6 +33,7 @@
     "reshape-expressions": "^0.1.0",
     "reshape-include": "^0.1.0",
     "reshape-layouts": "^0.2.1",
-    "reshape-retext": "^0.1.1"
+    "reshape-retext": "^0.1.1",
+    "sugarml": "^0.2.0"
   }
 }
