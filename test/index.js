@@ -9,11 +9,11 @@ test('options passed correctly', (t) => {
   })
   htmlStandardsRewired.__set__('include', (opts) => {
     t.truthy(opts.root === 'test')
-    t.truthy(opts.addDependencyTo === 'test')
+    t.truthy(opts.addDependencyTo.addDependency === 'test')
   })
   htmlStandardsRewired.__set__('layouts', (opts) => {
     t.truthy(opts.root === 'test')
-    t.truthy(opts.addDependencyTo === 'test')
+    t.truthy(opts.addDependencyTo.addDependency === 'test')
   })
   htmlStandardsRewired.__set__('expressions', (opts) => {
     t.truthy(opts.delimiters === 'test')
@@ -30,7 +30,7 @@ test('options passed correctly', (t) => {
 
   const out1 = htmlStandardsRewired({
     root: 'test',
-    webpack: { resourcePath: 'test', addDependencyTo: 'test' },
+    webpack: { resourcePath: 'test', addDependency: 'test' },
     delimiters: 'test',
     locals: 'true',
     unescapeDelimiters: 'test',
