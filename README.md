@@ -14,15 +14,15 @@
 
 ### Usage
 
-This is nothing more than a light wrapper around a bundle of plugins. Options are filtered into their appropriate plugins internally. All are optional.
+This is nothing more than a light wrapper around a reshape configuration object. Options are filtered into their appropriate plugins internally. All are optional.
 
 ```js
 const reshape = require('reshape')
 const htmlStandards = require('spike-html-standards')
 
-reshape({
-  plugins: htmlStandards(/* options */)
-})
+reshape(htmlStandards(/* options */))
+  .process(someHtml)
+  .then((res) => console.log(res.output()))
 ```
 
 By default, the html standard plugin pack includes:
