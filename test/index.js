@@ -42,12 +42,14 @@ test('options passed correctly', (t) => {
   const out2 = htmlStandards({
     parser: false,
     addDependencyTo: { addDependency: (x) => x },
-    locals: 'true'
+    locals: 'true',
+    minify: true
   })
 
   t.truthy(out1.parser)
   t.truthy(out1.locals)
   t.truthy(out1.filename === 'test')
-  t.truthy(out1.plugins.length === 5)
+  t.truthy(out1.plugins.length === 6)
   t.falsy(out2.parser)
+  t.truthy(out2.plugins[out2.plugins.length - 1].name === 'minifyPlugin')
 })
