@@ -36,6 +36,12 @@ By default, the html standard plugin pack includes:
 - [reshape-beautify](https://github.com/reshape/beautify), default settings
 - [reshape-minify](https://github.com/reshape/minify), toggled with the `minify` option which is false by default. When enabled, it will disable `beautify`
 
+Based on the way they are ordered there are a couple limitations to keep in mind:
+
+- You cannot use a layout `block/extend` inside of an `include`
+- Any expression delimiters rendered from a `content` or `retext` transform will be output as plaintext, not as an expression
+- Output from a `content` transform will be processed by `retext` in that order
+
 Any of these plugins can be customized by passing options described below.
 
 ### Options
