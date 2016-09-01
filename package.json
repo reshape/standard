@@ -1,12 +1,12 @@
 {
-  "name": "spike-html-standards",
-  "description": "standard plugin pack for reshape",
+  "name": "reshape-standard",
+  "description": "a standard plugin pack for reshape",
   "version": "0.3.7",
   "author": "Jeff Escalante",
   "ava": {
     "verbose": "true"
   },
-  "bugs": "https://github.com/static-dev/spike-html-standards/issues",
+  "bugs": "https://github.com/reshape/standard/issues",
   "dependencies": {
     "markdown-it": "^7.0.1",
     "reshape-beautify": "^0.1.2",
@@ -31,16 +31,16 @@
   "engines": {
     "node": ">= 6.0.0"
   },
-  "homepage": "https://github.com/static-dev/spike-html-standards",
+  "homepage": "https://github.com/reshape/standard",
   "keywords": [
     "html",
+    "reshape",
     "reshape-plugin",
-    "spike",
-    "standards"
+    "standard"
   ],
   "license": "MIT",
   "main": "lib",
-  "repository": "static-dev/spike-html-standards",
+  "repository": "reshape/standard",
   "scripts": {
     "coverage": "nyc ava && nyc report --reporter=html && open ./coverage/index.html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",

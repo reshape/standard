@@ -1,16 +1,47 @@
-# Spike HTML Standard Plugin Pack
+# Reshape Standard Plugin Pack
 
-[![npm](http://img.shields.io/npm/v/spike-html-standards.svg?style=flat)](https://badge.fury.io/js/spike-html-standards) [![tests](http://img.shields.io/travis/static-dev/spike-html-standards/master.svg?style=flat)](https://travis-ci.org/static-dev/spike-html-standards) [![dependencies](http://img.shields.io/david/static-dev/spike-html-standards.svg?style=flat)](https://david-dm.org/static-dev/spike-html-standards) [![coverage](http://img.shields.io/coveralls/static-dev/spike-html-standards.svg?style=flat)](https://coveralls.io/github/static-dev/spike-html-standards)
+[![npm](http://img.shields.io/npm/v/reshape-standard.svg?style=flat)](https://badge.fury.io/js/reshape-standard) [![tests](http://img.shields.io/travis/reshape/standard/master.svg?style=flat)](https://travis-ci.org/reshape/standard) [![dependencies](http://img.shields.io/david/reshape/standard.svg?style=flat)](https://david-dm.org/reshape/standard) [![coverage](http://img.shields.io/coveralls/reshape/standard.svg?style=flat)](https://coveralls.io/github/reshape/standard)
 
-[Spike html standards](https://spike.readme.io/docs/html-standards) plugin pack for reshape
+A standard, opinionated plugin pack for reshape
 
 > **Note:** This project is in early development, and versioning is a little different. [Read this](http://markup.im/#q4_cRZ1Q) for more details.
 
 ### Installation
 
-`npm install spike-html-standards -S`
+`npm install reshape-standard -S`
 
 > **Note:** This project is compatible with node v6+ only
+
+### Example
+
+The standard plugin pack includes plugins that cover all the features needed from a modern template engine. Below is an example of a page utilizing many of the features:
+
+```jade
+doctype html
+html
+  head
+    title Standard Example
+  body
+    h1 Hello world!
+
+    ul#nav
+      li.active: a(href='#') home
+      li: a(href='#') about
+
+    include(src='_welcome_message.sgr')
+
+    p local variable: {{ foo }}
+
+    each(loop='item of items')
+      if(condition='item.name')
+        p {{ item.name }}
+      else
+        p item with no name!
+
+    p(md) **Look** at this [markdown](https://daringfireball.net/projects/markdown/)
+```
+
+Note that it is easily possible to configure any of the options. If you don't like the whitespace syntax, you can flip it off with `parser: false` and use the same features with standard `<html>` syntax. If you don't like the `{{ }}` delimiters, you can quickly and easily change them. See the options below for more!
 
 ### Usage
 
@@ -18,14 +49,14 @@ This is nothing more than a light wrapper around a reshape configuration object.
 
 ```js
 const reshape = require('reshape')
-const htmlStandards = require('spike-html-standards')
+const standard = require('reshape-standard')
 
-reshape(htmlStandards(/* options */))
+reshape(standard(/* options */))
   .process(someHtml)
   .then((res) => console.log(res.output()))
 ```
 
-By default, the html standard plugin pack includes:
+By default, the standard plugin pack includes:
 
 - [sugarml](https://github.com/reshape/sugarml), provided as default parser
 - [reshape-expressions](https://github.com/reshape/expressions), default settings

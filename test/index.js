@@ -1,34 +1,34 @@
 const test = require('ava')
 const rewire = require('rewire')
-const htmlStandardsRewired = rewire('..')
-const htmlStandards = require('..')
+const standardRewired = rewire('..')
+const standard = require('..')
 
 test('options passed correctly', (t) => {
-  htmlStandardsRewired.__set__('content', (opts) => {
+  standardRewired.__set__('content', (opts) => {
     t.truthy(opts.md === 'test')
   })
-  htmlStandardsRewired.__set__('include', (opts) => {
+  standardRewired.__set__('include', (opts) => {
     t.truthy(opts.root === 'test')
     t.truthy(opts.addDependencyTo.addDependency === 'test')
   })
-  htmlStandardsRewired.__set__('layouts', (opts) => {
+  standardRewired.__set__('layouts', (opts) => {
     t.truthy(opts.root === 'test')
     t.truthy(opts.addDependencyTo.addDependency === 'test')
   })
-  htmlStandardsRewired.__set__('expressions', (opts) => {
+  standardRewired.__set__('expressions', (opts) => {
     t.truthy(opts.delimiters === 'test')
     t.truthy(opts.unescapeDelimiters === 'test')
   })
-  htmlStandardsRewired.__set__('retext', (opts) => {
+  standardRewired.__set__('retext', (opts) => {
     t.truthy(opts.length === 3)
   })
-  htmlStandardsRewired.__set__('MarkdownIt', class Mock {
+  standardRewired.__set__('MarkdownIt', class Mock {
     constructor (opts) {
       t.truthy(opts === 'test')
     }
   })
 
-  const out1 = htmlStandardsRewired({
+  const out1 = standardRewired({
     root: 'test',
     webpack: { resourcePath: 'test', addDependency: 'test' },
     delimiters: 'test',
@@ -39,7 +39,7 @@ test('options passed correctly', (t) => {
     markdown: 'test'
   })
 
-  const out2 = htmlStandards({
+  const out2 = standard({
     parser: false,
     addDependencyTo: { addDependency: (x) => x },
     locals: 'true',
