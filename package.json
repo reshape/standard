@@ -1,7 +1,7 @@
 {
   "name": "spike-html-standards",
   "description": "standard plugin pack for reshape",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "Jeff Escalante",
   "ava": {
     "verbose": "true"
