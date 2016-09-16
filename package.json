@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/reshape/standard/issues",
   "dependencies": {
-    "markdown-it": "^7.0.1",
+    "markdown-it": "^8.0.0",
     "reshape-beautify": "^0.1.2",
     "reshape-content": "^0.2.0",
     "reshape-expressions": "^0.1.0",
