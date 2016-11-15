@@ -22,7 +22,7 @@
   "devDependencies": {
     "ava": "^0.16.0",
     "coveralls": "2.x",
-    "nyc": "^8.1.0",
+    "nyc": "^9.0.1",
     "reshape": "^0.3.2",
     "rewire": "^2.5.2",
     "snazzy": "^5.0.0",
