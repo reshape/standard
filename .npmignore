@@ -5,3 +5,4 @@ contributing.md
 .travis.yml
 coverage
 .nyc_output
+yarn.lock
