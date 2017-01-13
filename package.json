@@ -17,7 +17,7 @@
     "reshape-minify": "^0.1.1",
     "reshape-retext": "^0.3.0",
     "retext-smartypants": "^2.0.0",
-    "sugarml": "^0.4.0"
+    "sugarml": "^0.5.0"
   },
   "devDependencies": {
     "ava": "^0.17.0",
