@@ -38,7 +38,7 @@ html
       else
         p item with no name!
 
-    p(md) **Look** at this [markdown](https://daringfireball.net/projects/markdown/)
+    p(mdi) **Look** at this [markdown](https://daringfireball.net/projects/markdown/)
 ```
 
 Note that it is easily possible to configure any of the options. If you don't like the whitespace syntax, you can flip it off with `parser: false` and use the same features with standard `<html>` syntax. If you don't like the `{{ }}` delimiters, you can quickly and easily change them. See the options below for more!
@@ -62,7 +62,7 @@ By default, the standard plugin pack includes:
 - [reshape-expressions](https://github.com/reshape/expressions), default settings
 - [reshape-layouts](https://github.com/reshape/layouts), default settings
 - [reshape-include](https://github.com/reshape/include), default settings
-- [reshape-content](https://github.com/reshape/content) with a `md` function that renders markdown using [markdown-it](https://github.com/markdown-it/markdown-it)
+- [reshape-content](https://github.com/reshape/content) with `md` and `mdi` functions that render markdown using [markdown-it](https://github.com/markdown-it/markdown-it)
 - [reshape-retext](https://github.com/reshape/retext) with the [smartypants](https://github.com/wooorm/retext-smartypants) plugin
 - [reshape-beautify](https://github.com/reshape/beautify), default settings
 - [reshape-minify](https://github.com/reshape/minify), toggled with the `minify` option which is false by default. When enabled, it will disable `beautify`
@@ -86,12 +86,47 @@ Any of these plugins can be customized by passing options described below.
 | **delimiters** | Delimiters used for html-escaped expressions | `['{{', '}}']` |
 | **unescapeDelimiters** | Delimiters used for unescaped expressions | `['{{{', '}}}']` |
 | **markdown** | Options passed in to [markdown-it](https://github.com/markdown-it/markdown-it) constructor | `{ typographer: true, linkify: true }` |
-| **content** | Options passed to the [reshape-content](https://github.com/reshape/content) plugin | `{ md: renderMarkdown }` |
+| **content** | Options passed to the [reshape-content](https://github.com/reshape/content) plugin | `{ md: renderMarkdown, mdi: renderMarkdownInline }` |
 | **parser** | custom html parser if desired. pass `false` to use the default html parser | `sugarml` |
 | **retext** | Plugins to be passed to the [reshape-retext](https://github.com/reshape/retext) plugin | `[smartypants]` ([ref](https://github.com/wooorm/retext-smartypants)) |
 | **locals** | Added directly to the output object, used when compiling a reshape template to html | `{}` |
 | **alias** | Alias option to be passed to the [include plugin](https://github.com/reshape/include#options) | |
 | **minify** | Minifies the html output by removing excess spaces and line breaks | `false` |
+
+### Markdown Rendering Functions
+
+There are two markdown rendering shortcut functions provided with this plugin pack: `md` and `mdi`. The `md` function will run a full markdown render including wrapping with a paragraph tag, rendering headlines, etc. For example:
+
+```
+.content(md).
+  # The title
+
+  Here's some text, wow.
+
+  A second paragraph!
+```
+
+This would work as expected, rendering title and paragraph tags:
+
+```
+<div class='content'>
+  <h1>The title</h1>
+  <p>Here's some text, wow.</p>
+  <p>A second paragraph!</p>
+</div>
+```
+
+The `mdi` shortcut is specifically for rendering _inline_ markdown, not including any type of title tags or paragraph wrapping. So for example:
+
+```
+p(mdi) Hello, I am #1 and this is [my link](#).
+```
+
+Would render without additional paragraph wrappings or unexpected title renders:
+
+```
+<p> Hello, I am #1 and this is <a href='#'>my link</a>.
+```
 
 ### License & Contributing
 
