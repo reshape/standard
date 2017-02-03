@@ -20,7 +20,7 @@
     "sugarml": "^0.5.0"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.18.1",
     "coveralls": "2.x",
     "nyc": "^10.0.0",
     "reshape": "^0.4.0",
