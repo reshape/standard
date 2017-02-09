@@ -9,11 +9,10 @@ test('options passed correctly', (t) => {
   })
   standardRewired.__set__('include', (opts) => {
     t.truthy(opts.root === 'test')
-    t.truthy(opts.addDependencyTo.addDependency === 'test')
+    t.truthy(opts.alias === 'test')
   })
   standardRewired.__set__('layouts', (opts) => {
     t.truthy(opts.root === 'test')
-    t.truthy(opts.addDependencyTo.addDependency === 'test')
   })
   standardRewired.__set__('expressions', (opts) => {
     t.truthy(opts.delimiters === 'test')
@@ -30,9 +29,10 @@ test('options passed correctly', (t) => {
 
   const out1 = standardRewired({
     root: 'test',
-    webpack: { resourcePath: 'test', addDependency: 'test' },
+    webpack: true,
     delimiters: 'test',
     locals: 'true',
+    alias: 'test',
     unescapeDelimiters: 'test',
     content: { md: 'test' },
     retext: [1, 2, 3],
@@ -48,7 +48,7 @@ test('options passed correctly', (t) => {
 
   t.truthy(out1.parser)
   t.truthy(out1.locals)
-  t.truthy(out1.filename === 'test')
+  t.truthy(typeof out1.filename === 'function')
   t.truthy(out1.plugins.length === 6)
   t.falsy(out2.parser)
   t.truthy(out2.plugins[out2.plugins.length - 1].name === 'minifyPlugin')
