@@ -48,7 +48,7 @@ test('options passed correctly', (t) => {
 
   t.truthy(out1.parser)
   t.truthy(out1.locals)
-  t.truthy(typeof out1.filename === 'function')
+  t.truthy(!out1.filename)
   t.truthy(out1.plugins.length === 6)
   t.falsy(out2.parser)
   t.truthy(out2.plugins[out2.plugins.length - 1].name === 'minifyPlugin')
