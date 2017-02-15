@@ -3,53 +3,103 @@ const rewire = require('rewire')
 const standardRewired = rewire('..')
 const standard = require('..')
 
-test('options passed correctly', (t) => {
-  standardRewired.__set__('content', (opts) => {
+test('content options passed correctly', (t) => {
+  const undo = standardRewired.__set__('content', (opts) => {
     t.truthy(opts.md === 'test')
   })
-  standardRewired.__set__('include', (opts) => {
+  standardRewired({ content: { md: 'test' } })
+  undo()
+})
+
+test('include options passed correctly', (t) => {
+  const undo = standardRewired.__set__('include', (opts) => {
     t.truthy(opts.root === 'test')
     t.truthy(opts.alias === 'test')
+    t.truthy(opts.parserRules === 'test')
   })
-  standardRewired.__set__('layouts', (opts) => {
+  standardRewired({ root: 'test', alias: 'test', parserRules: 'test' })
+  undo()
+})
+
+test('layouts options passed correctly', (t) => {
+  const undo = standardRewired.__set__('layouts', (opts) => {
     t.truthy(opts.root === 'test')
   })
-  standardRewired.__set__('expressions', (opts) => {
+  standardRewired({ root: 'test' })
+  undo()
+})
+
+test('expressions options passed correctly', (t) => {
+  const undo = standardRewired.__set__('expressions', (opts) => {
     t.truthy(opts.delimiters === 'test')
     t.truthy(opts.unescapeDelimiters === 'test')
   })
-  standardRewired.__set__('retext', (opts) => {
+  standardRewired({ delimiters: 'test', unescapeDelimiters: 'test' })
+  undo()
+})
+
+test('retext options passed correctly', (t) => {
+  const undo = standardRewired.__set__('retext', (opts) => {
     t.truthy(opts.length === 3)
   })
-  standardRewired.__set__('MarkdownIt', class Mock {
-    constructor (opts) {
-      t.truthy(opts === 'test')
-    }
-  })
+  standardRewired({ retext: [1, 2, 3] })
+  undo()
+})
 
-  const out1 = standardRewired({
-    root: 'test',
-    webpack: true,
-    delimiters: 'test',
-    locals: 'true',
-    alias: 'test',
-    unescapeDelimiters: 'test',
-    content: { md: 'test' },
-    retext: [1, 2, 3],
-    markdown: 'test'
-  })
+test('filename passed correctly', (t) => {
+  const out = standard({ filename: 'test' })
+  t.truthy(out.filename === 'test')
+})
 
-  const out2 = standard({
-    parser: false,
-    addDependencyTo: { addDependency: (x) => x },
-    locals: 'true',
-    minify: true
-  })
+test('defaults come out right', (t) => {
+  const out = standard()
+  t.truthy(out.parser.name === 'SugarMLParser')
+  t.truthy(Object.keys(out.locals).length === 0)
+  t.truthy(out.filename === undefined)
+  t.truthy(out.plugins.length === 6)
+})
 
-  t.truthy(out1.parser)
-  t.truthy(out1.locals)
-  t.truthy(!out1.filename)
-  t.truthy(out1.plugins.length === 6)
-  t.falsy(out2.parser)
-  t.truthy(out2.plugins[out2.plugins.length - 1].name === 'minifyPlugin')
+test('content defaults', (t) => {
+  const undo = standardRewired.__set__('content', (opts) => {
+    t.truthy(typeof opts.md === 'function')
+    t.truthy(typeof opts.mdi === 'function')
+  })
+  standardRewired()
+  undo()
+})
+
+test('parserRules defaults', (t) => {
+  const undo = standardRewired.__set__('include', (opts) => {
+    t.truthy(opts.parserRules[0].test.exec)
+  })
+  standardRewired()
+  undo()
+})
+
+test('retext default', (t) => {
+  const undo = standardRewired.__set__('retext', (opts) => {
+    t.truthy(typeof opts === 'function')
+  })
+  standardRewired()
+  undo()
+})
+
+test('parser false', (t) => {
+  const out = standard({ parser: false })
+  t.truthy(out.parser === undefined)
+})
+
+test('alternate parser', (t) => {
+  const out = standard({ parser: 'test' })
+  t.truthy(out.parser === 'test')
+})
+
+test('passed locals', (t) => {
+  const out = standard({ locals: 'test' })
+  t.truthy(out.locals === 'test')
+})
+
+test('minify option', (t) => {
+  const out = standard({ minify: true })
+  t.truthy(out.plugins[out.plugins.length - 1].name === 'minifyPlugin')
 })

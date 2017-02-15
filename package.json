@@ -15,6 +15,7 @@
     "reshape-include": "next",
     "reshape-layouts": "next",
     "reshape-minify": "^0.1.1",
+    "reshape-parser": "^0.2.1",
     "reshape-retext": "^0.3.0",
     "retext-smartypants": "^2.0.0",
     "sugarml": "^0.5.0"
