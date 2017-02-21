@@ -103,3 +103,17 @@ test('minify option', (t) => {
   const out = standard({ minify: true })
   t.truthy(out.plugins[out.plugins.length - 1].name === 'minifyPlugin')
 })
+
+test('appendPlugins option', (t) => {
+  const out = standard({ appendPlugins: ['test'] })
+  const out2 = standard({ appendPlugins: 'test' })
+  t.truthy(out.plugins[out.plugins.length - 2] === 'test')
+  t.truthy(out2.plugins[out.plugins.length - 2] === 'test')
+})
+
+test('prependPlugins option', (t) => {
+  const out = standard({ prependPlugins: ['test'] })
+  const out2 = standard({ prependPlugins: 'test' })
+  t.truthy(out.plugins[0] === 'test')
+  t.truthy(out2.plugins[0] === 'test')
+})
