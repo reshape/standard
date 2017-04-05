@@ -12,8 +12,8 @@
     "reshape-beautify": "^0.1.2",
     "reshape-content": "^0.2.0",
     "reshape-expressions": "^0.1.5",
-    "reshape-include": "next",
-    "reshape-layouts": "next",
+    "reshape-include": "^1.0.0",
+    "reshape-layouts": "^1.0.0",
     "reshape-minify": "^0.1.1",
     "reshape-parser": "^0.2.1",
     "reshape-retext": "^0.3.0",
@@ -21,7 +21,7 @@
     "sugarml": "^0.5.0"
   },
   "devDependencies": {
-    "ava": "^0.18.1",
+    "ava": "^0.19.0",
     "coveralls": "2.x",
     "nyc": "^10.0.0",
     "reshape": "^0.4.0",
