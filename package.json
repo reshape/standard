@@ -13,7 +13,7 @@
     "reshape-content": "^0.2.0",
     "reshape-expressions": "^0.1.3",
     "reshape-include": "^0.3.0",
-    "reshape-layouts": "^0.2.1",
+    "reshape-layouts": "^1.0.0",
     "reshape-minify": "^0.1.1",
     "reshape-retext": "^0.3.0",
     "retext-smartypants": "^2.0.0",
