@@ -81,8 +81,6 @@ Any of these plugins can be customized by passing options described below.
 | ---- | ----------- | ------- |
 | **root** | Root path used to resolve layouts and includes | |
 | **filename** | Name of the file being compiled, used for error traces and as the include/layout root if not otherwise provided | |
-| **addDependencyTo** | Object with `addDependency` method that will get file paths for tracked deps from includes/layouts | |
-| **webpack** | Shortcut for webpack users to set the `root` and `addDependencyTo` options more easily. Pass webpack loader context. | |
 | **delimiters** | Delimiters used for html-escaped expressions | `['{{', '}}']` |
 | **unescapeDelimiters** | Delimiters used for unescaped expressions | `['{{{', '}}}']` |
 | **markdown** | Options passed in to [markdown-it](https://github.com/markdown-it/markdown-it) constructor | `{ typographer: true, linkify: true }` |
@@ -91,7 +89,10 @@ Any of these plugins can be customized by passing options described below.
 | **retext** | Plugins to be passed to the [reshape-retext](https://github.com/reshape/retext) plugin | `[smartypants]` ([ref](https://github.com/wooorm/retext-smartypants)) |
 | **locals** | Added directly to the output object, used when compiling a reshape template to html | `{}` |
 | **alias** | Alias option to be passed to the [include plugin](https://github.com/reshape/include#options) | |
+| **parserRules** | Parser rules to be passed to the [include plugin](https://github.com/reshape/include#options) | |
 | **minify** | Minifies the html output by removing excess spaces and line breaks | `false` |
+| **appendPlugins** | Adds a single plugin or array of plugins after all the defaults | |
+| **prependPlugins** | Adds a single plugin or array of plugins before all the defaults | |
 
 ### Markdown Rendering Functions
 
