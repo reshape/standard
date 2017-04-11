@@ -84,6 +84,7 @@ Any of these plugins can be customized by passing options described below.
 | **delimiters** | Delimiters used for html-escaped expressions | `['{{', '}}']` |
 | **unescapeDelimiters** | Delimiters used for unescaped expressions | `['{{{', '}}}']` |
 | **markdown** | Options passed in to [markdown-it](https://github.com/markdown-it/markdown-it) constructor | `{ typographer: true, linkify: true }` |
+| **markdownPlugins** | Plugins to be loaded by [markdown-it](https://github.com/markdown-it/markdown-it) parser | |
 | **content** | Options passed to the [reshape-content](https://github.com/reshape/content) plugin | `{ md: renderMarkdown, mdi: renderMarkdownInline }` |
 | **parser** | custom html parser if desired. pass `false` to use the default html parser | `sugarml` |
 | **retext** | Plugins to be passed to the [reshape-retext](https://github.com/reshape/retext) plugin | `[smartypants]` ([ref](https://github.com/wooorm/retext-smartypants)) |
