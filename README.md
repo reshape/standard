@@ -84,7 +84,7 @@ Any of these plugins can be customized by passing options described below.
 | **delimiters** | Delimiters used for html-escaped expressions | `['{{', '}}']` |
 | **unescapeDelimiters** | Delimiters used for unescaped expressions | `['{{{', '}}}']` |
 | **markdown** | Options passed in to [markdown-it](https://github.com/markdown-it/markdown-it) constructor | `{ typographer: true, linkify: true }` |
-| **markdownPlugins** | Plugins to be loaded by [markdown-it](https://github.com/markdown-it/markdown-it) parser | |
+| **markdownPlugins** | Plugins to be loaded by [markdown-it](https://github.com/markdown-it/markdown-it) parser. See below for more details. | |
 | **content** | Options passed to the [reshape-content](https://github.com/reshape/content) plugin | `{ md: renderMarkdown, mdi: renderMarkdownInline }` |
 | **parser** | custom html parser if desired. pass `false` to use the default html parser | `sugarml` |
 | **retext** | Plugins to be passed to the [reshape-retext](https://github.com/reshape/retext) plugin | `[smartypants]` ([ref](https://github.com/wooorm/retext-smartypants)) |
@@ -128,6 +128,44 @@ Would render without additional paragraph wrappings or unexpected title renders:
 
 ```
 <p> Hello, I am #1 and this is <a href='#'>my link</a>.
+```
+
+### Markdown Plugins
+
+This reshape plugin uses [markdown-it](https://github.com/markdown-it/markdown-it) to render markdown, and so also accepts [markdown-it plugins](https://www.npmjs.com/browse/keyword/markdown-it-plugin)
+
+Many markdown-it plugins accept options as well. Typically, plugins revert to a default set of options if no options are explicitly passed.
+
+Plugins should be added to your `app.js` file, passed via `markdownPlugins:` as an array of plugins, with or without options.
+
+Here's a specific example. We require the plugins in `app.js`, then create the `markdownPlugins` key as part of our `reshape` config.
+
+```js
+const htmlStandards = require('reshape-standard')
+const cssStandards = require('spike-css-standards')
+const jsStandards = require('babel-preset-env')
+const pageId = require('spike-page-id')
+const markdownItAnchor = require('markdown-it-anchor')
+const markdownEmoji = require('markdown-it-emoji')
+const markdownItTable = require('markdown-it-table-of-contents')
+
+module.exports = {
+  devtool: 'source-map',
+  matchers: {
+    html: '*(**/)*.sgr',
+    css: '*(**/)*.sss'
+  },
+  ignore: ['**/layout.sgr', '**/_*', '**/.*', '_cache/**', 'readme.md', 'yarn.lock'],
+  reshape: htmlStandards({
+    locals: (ctx) => { return { pageId: pageId(ctx) } },
+    markdownPlugins: [
+      [markdownItAnchor, {permalink: true, permalinkSymbol: '#'}], [markdownItTable, {includeLevel: [1,2,3,4,5,6]}],
+      markdownEmoji 
+    ]
+  }),
+  postcss: cssStandards(),
+  babel: { presets: [[jsStandards, { modules: false }]] }
+}
 ```
 
 ### License & Contributing
