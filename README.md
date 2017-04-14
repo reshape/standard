@@ -132,40 +132,22 @@ Would render without additional paragraph wrappings or unexpected title renders:
 
 ### Markdown Plugins
 
-This reshape plugin uses [markdown-it](https://github.com/markdown-it/markdown-it) to render markdown, and so also accepts [markdown-it plugins](https://www.npmjs.com/browse/keyword/markdown-it-plugin)
-
-Many markdown-it plugins accept options as well. Typically, plugins revert to a default set of options if no options are explicitly passed.
-
-Plugins should be added to your `app.js` file, passed via `markdownPlugins:` as an array of plugins, with or without options.
-
-Here's a specific example. We require the plugins in `app.js`, then create the `markdownPlugins` key as part of our `reshape` config.
+You can pass an array of [markdown-it plugins](https://www.npmjs.com/browse/keyword/markdown-it-plugin) via the `markdownPlugins` option with or without their own options.
 
 ```js
-const htmlStandards = require('reshape-standard')
-const cssStandards = require('spike-css-standards')
-const jsStandards = require('babel-preset-env')
-const pageId = require('spike-page-id')
-const markdownItAnchor = require('markdown-it-anchor')
-const markdownEmoji = require('markdown-it-emoji')
-const markdownItTable = require('markdown-it-table-of-contents')
+const reshape = require('reshape')
+const standard = require('reshape-standard')
+const emoji = require('markdown-it-emoji')
+const anchor = require('markdown-it-anchor')
+const toc = require('markdown-it-table-of-contents')
 
-module.exports = {
-  devtool: 'source-map',
-  matchers: {
-    html: '*(**/)*.sgr',
-    css: '*(**/)*.sss'
-  },
-  ignore: ['**/layout.sgr', '**/_*', '**/.*', '_cache/**', 'readme.md', 'yarn.lock'],
-  reshape: htmlStandards({
-    locals: (ctx) => { return { pageId: pageId(ctx) } },
-    markdownPlugins: [
-      [markdownItAnchor, {permalink: true, permalinkSymbol: '#'}], [markdownItTable, {includeLevel: [1,2,3,4,5,6]}],
-      markdownEmoji 
-    ]
-  }),
-  postcss: cssStandards(),
-  babel: { presets: [[jsStandards, { modules: false }]] }
-}
+reshape(standard(markdownPlugins: [
+  emoji,
+  anchor,
+  [toc, { containerClass: 'toc' }]
+]))
+  .process(someHtml)
+  .then((res) => console.log(res.output()))
 ```
 
 ### License & Contributing
