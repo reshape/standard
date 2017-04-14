@@ -1,5 +1,7 @@
 # Reshape Standard Plugin Pack
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/reshape/standard.svg)](https://greenkeeper.io/)
+
 [![npm](http://img.shields.io/npm/v/reshape-standard.svg?style=flat)](https://badge.fury.io/js/reshape-standard) [![tests](http://img.shields.io/travis/reshape/standard/master.svg?style=flat)](https://travis-ci.org/reshape/standard) [![dependencies](http://img.shields.io/david/reshape/standard.svg?style=flat)](https://david-dm.org/reshape/standard) [![coverage](http://img.shields.io/coveralls/reshape/standard.svg?style=flat)](https://coveralls.io/github/reshape/standard)
 
 A standard, opinionated plugin pack for reshape
