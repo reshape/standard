@@ -117,3 +117,18 @@ test('prependPlugins option', (t) => {
   t.truthy(out.plugins[0] === 'test')
   t.truthy(out2.plugins[0] === 'test')
 })
+
+test('markdownPlugins option', (t) => {
+  const plugins = [1, 2, 3]
+  let count = 0
+  function MarkdownIt () {}
+  MarkdownIt.prototype.use = (plugin) => {
+    t.truthy(plugins[count] === plugin)
+    count++
+  }
+  MarkdownIt.prototype.render = () => {}
+  MarkdownIt.prototype.renderInline = () => {}
+  const undo = standardRewired.__set__('MarkdownIt', MarkdownIt)
+  standardRewired({ markdownPlugins: plugins })
+  undo()
+})
