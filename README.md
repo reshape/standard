@@ -84,6 +84,7 @@ Any of these plugins can be customized by passing options described below.
 | **delimiters** | Delimiters used for html-escaped expressions | `['{{', '}}']` |
 | **unescapeDelimiters** | Delimiters used for unescaped expressions | `['{{{', '}}}']` |
 | **markdown** | Options passed in to [markdown-it](https://github.com/markdown-it/markdown-it) constructor | `{ typographer: true, linkify: true }` |
+| **markdownPlugins** | Plugins to be loaded by [markdown-it](https://github.com/markdown-it/markdown-it) parser. See below for more details. | |
 | **content** | Options passed to the [reshape-content](https://github.com/reshape/content) plugin | `{ md: renderMarkdown, mdi: renderMarkdownInline }` |
 | **parser** | custom html parser if desired. pass `false` to use the default html parser | `sugarml` |
 | **retext** | Plugins to be passed to the [reshape-retext](https://github.com/reshape/retext) plugin | `[smartypants]` ([ref](https://github.com/wooorm/retext-smartypants)) |
@@ -127,6 +128,26 @@ Would render without additional paragraph wrappings or unexpected title renders:
 
 ```
 <p> Hello, I am #1 and this is <a href='#'>my link</a>.
+```
+
+### Markdown Plugins
+
+You can pass an array of [markdown-it plugins](https://www.npmjs.com/browse/keyword/markdown-it-plugin) via the `markdownPlugins` option with or without their own options.
+
+```js
+const reshape = require('reshape')
+const standard = require('reshape-standard')
+const emoji = require('markdown-it-emoji')
+const anchor = require('markdown-it-anchor')
+const toc = require('markdown-it-table-of-contents')
+
+reshape(standard(markdownPlugins: [
+  emoji,
+  anchor,
+  [toc, { containerClass: 'toc' }]
+]))
+  .process(someHtml)
+  .then((res) => console.log(res.output()))
 ```
 
 ### License & Contributing
