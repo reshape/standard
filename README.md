@@ -94,6 +94,8 @@ Any of these plugins can be customized by passing options described below.
 | **minify** | Minifies the html output by removing excess spaces and line breaks | `false` |
 | **appendPlugins** | Adds a single plugin or array of plugins after all the defaults | |
 | **prependPlugins** | Adds a single plugin or array of plugins before all the defaults | |
+| **template** | Set this to `true` if you are trying to output a client-side template function. | false |
+| **locals** | Optionally set your locals as soon as expressions are evaluated. | |
 
 ### Markdown Rendering Functions
 
