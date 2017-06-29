@@ -2,6 +2,10 @@ const test = require('ava')
 const rewire = require('rewire')
 const standardRewired = rewire('..')
 const standard = require('..')
+const path = require('path')
+const fixtures = path.join(__dirname, 'fixtures')
+const reshape = require('reshape')
+const fs = require('fs')
 
 test('content options passed correctly', (t) => {
   const undo = standardRewired.__set__('content', (opts) => {
@@ -56,7 +60,7 @@ test('defaults come out right', (t) => {
   t.truthy(out.parser.name === 'SugarMLParser')
   t.truthy(Object.keys(out.locals).length === 0)
   t.truthy(out.filename === undefined)
-  t.truthy(out.plugins.length === 6)
+  t.truthy(out.plugins.length === 7)
 })
 
 test('content defaults', (t) => {
@@ -104,6 +108,21 @@ test('minify option', (t) => {
   t.truthy(out.plugins[out.plugins.length - 1].name === 'minifyPlugin')
 })
 
+test('locals option', (t) => {
+  const undo = standardRewired.__set__('evalCode', (opts) => {
+    t.truthy(opts === true)
+  })
+  standardRewired({ locals: true })
+  undo()
+})
+
+test('template option', (t) => {
+  const out = standard()
+  t.truthy(out.plugins[3].name === 'evalCodePlugin')
+  const out2 = standard({ template: true })
+  t.falsy(out2.plugins[3].name === 'evalCodePlugin')
+})
+
 test('appendPlugins option', (t) => {
   const out = standard({ appendPlugins: ['test'] })
   const out2 = standard({ appendPlugins: 'test' })
@@ -131,4 +150,13 @@ test('markdownPlugins option', (t) => {
   const undo = standardRewired.__set__('MarkdownIt', MarkdownIt)
   standardRewired({ markdownPlugins: plugins })
   undo()
+})
+
+test.only('integration', (t) => {
+  const markup = fs.readFileSync(path.join(fixtures, 'index.sgr'), 'utf8')
+  return reshape(standard())
+    .process(markup)
+    .then((res) => {
+      t.is(res.output().trim(), '<p>wow <strong>amazing</strong></p>')
+    })
 })
