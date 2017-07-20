@@ -15,7 +15,7 @@
     "reshape-expressions": "^0.1.5",
     "reshape-include": "^1.0.0",
     "reshape-layouts": "^1.0.0",
-    "reshape-minify": "^0.1.1",
+    "reshape-minify": "^1.0.0",
     "reshape-parser": "^0.2.1",
     "reshape-retext": "^0.3.0",
     "retext-smartypants": "^2.0.0",
