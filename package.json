@@ -17,7 +17,7 @@
     "reshape-layouts": "^1.0.0",
     "reshape-minify": "^1.0.0",
     "reshape-parser": "^0.2.1",
-    "reshape-retext": "^0.3.0",
+    "reshape-retext": "^1.0.0",
     "retext-smartypants": "^2.0.0",
     "sugarml": "^0.6.0"
   },
