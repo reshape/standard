@@ -1,10 +1,10 @@
-# Reshape Standard Plugin Pack
+# Reshape Standard Preset
 
 [![npm](http://img.shields.io/npm/v/reshape-standard.svg?style=flat-square)](https://badge.fury.io/js/reshape-standard) [![tests](http://img.shields.io/travis/reshape/standard/master.svg?style=flat-square)](https://travis-ci.org/reshape/standard) [![dependencies](http://img.shields.io/david/reshape/standard.svg?style=flat-square)](https://david-dm.org/reshape/standard)
 [![coverage](https://img.shields.io/codecov/c/github/reshape/standard.svg?style=flat-square)](https://codecov.io/gh/reshape/standard)
 
 
-A standard, opinionated plugin pack for reshape
+A standard, opinionated preset for reshape
 
 > **Note:** This project is in early development, and versioning is a little different. [Read this](http://markup.im/#q4_cRZ1Q) for more details.
 
@@ -16,7 +16,7 @@ A standard, opinionated plugin pack for reshape
 
 ### Example
 
-The standard plugin pack includes plugins that cover all the features needed from a modern template engine. Below is an example of a page utilizing many of the features:
+The standard preset includes plugins that cover all the features needed from a modern template engine. Below is an example of a page utilizing many of the features:
 
 ```jade
 doctype html
@@ -58,7 +58,7 @@ reshape(standard(/* options */))
   .then((res) => console.log(res.output()))
 ```
 
-By default, the standard plugin pack includes:
+By default, the standard preset includes:
 
 - [sugarml](https://github.com/reshape/sugarml), provided as default parser
 - [reshape-expressions](https://github.com/reshape/expressions), default settings
@@ -101,7 +101,7 @@ Any of these plugins can be customized by passing options described below.
 
 ### Markdown Rendering Functions
 
-There are two markdown rendering shortcut functions provided with this plugin pack: `md` and `mdi`. The `md` function will run a full markdown render including wrapping with a paragraph tag, rendering headlines, etc. For example:
+There are two markdown rendering shortcut functions provided with this preset: `md` and `mdi`. The `md` function will run a full markdown render including wrapping with a paragraph tag, rendering headlines, etc. For example:
 
 ```
 .content(md).
