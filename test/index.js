@@ -152,7 +152,35 @@ test('markdownPlugins option', (t) => {
   undo()
 })
 
-test.only('integration', (t) => {
+test('markdownPlugins option with options', (t) => {
+  const plugins = [[1, 'options']]
+  function MarkdownIt () {}
+  MarkdownIt.prototype.use = (plugin, options) => {
+    t.truthy(plugins[0][0] === plugin)
+    t.truthy(plugins[0][1] === options)
+  }
+  MarkdownIt.prototype.render = () => {}
+  MarkdownIt.prototype.renderInline = () => {}
+  const undo = standardRewired.__set__('MarkdownIt', MarkdownIt)
+  standardRewired({ markdownPlugins: plugins })
+  undo()
+})
+
+test('template option turns off evalCode', (t) => {
+  const out = standard({ template: true })
+  const out2 = standard()
+  t.is(out.plugins[3].name, '')
+  t.is(out2.plugins[3].name, 'evalCodePlugin')
+
+  const markup = fs.readFileSync(path.join(fixtures, 'index.sgr'), 'utf8')
+  return reshape(out)
+    .process(markup)
+    .then((res) => {
+      t.is(res.output().trim(), '<p>__runtime.escape(“wow <strong>amazing</strong>”)</p>')
+    })
+})
+
+test('integration', (t) => {
   const markup = fs.readFileSync(path.join(fixtures, 'index.sgr'), 'utf8')
   return reshape(standard())
     .process(markup)

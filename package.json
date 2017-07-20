@@ -11,14 +11,14 @@
     "markdown-it": "^8.2.2",
     "reshape-beautify": "^0.1.2",
     "reshape-content": "^0.2.0",
-    "reshape-eval-code": "^0.3.2",
+    "reshape-eval-code": "^0.3.3",
     "reshape-expressions": "^0.1.5",
     "reshape-include": "^1.0.0",
     "reshape-layouts": "^1.0.0",
     "reshape-minify": "^1.0.0",
     "reshape-parser": "^0.2.1",
     "reshape-retext": "^1.0.0",
-    "retext-smartypants": "^2.0.0",
+    "retext-smartypants": "^3.0.0",
     "sugarml": "^0.6.0"
   },
   "devDependencies": {
