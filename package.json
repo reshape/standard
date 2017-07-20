@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "ava": "^0.21.0",
-    "coveralls": "^2.13.1",
+    "codecov": "^2.2.0",
     "nyc": "^11.0.3",
     "reshape": "^0.4.0",
     "rewire": "^2.5.2",
@@ -44,8 +44,8 @@
   "main": "lib",
   "repository": "reshape/standard",
   "scripts": {
+    "codecov": "nyc report -r lcovonly && codecov",
     "coverage": "nyc ava && nyc report --reporter=html && open ./coverage/index.html",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard | snazzy",
     "test": "nyc ava"
   }
