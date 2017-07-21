@@ -55,6 +55,11 @@ test('filename passed correctly', (t) => {
   t.truthy(out.filename === 'test')
 })
 
+test('multi option passed correctly', (t) => {
+  const out = standard({ multi: 'test' })
+  t.truthy(out.multi === 'test')
+})
+
 test('defaults come out right', (t) => {
   const out = standard()
   t.truthy(out.parser.name === 'SugarMLParser')

@@ -98,6 +98,7 @@ Any of these plugins can be customized by passing options described below.
 | **prependPlugins** | Adds a single plugin or array of plugins before all the defaults | |
 | **template** | Set this to `true` if you are trying to output a client-side template function. | false |
 | **locals** | Optionally set your locals as soon as expressions are evaluated. | |
+| **multi** | Pass through feature specific to [reshape-loader](https://github.com/reshape/loader#producing-multiple-outputs-from-a-single-files) | |
 
 ### Markdown Rendering Functions
 
