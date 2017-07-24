@@ -62,7 +62,6 @@ test('multi option passed correctly', (t) => {
 
 test('defaults come out right', (t) => {
   const out = standard()
-  t.truthy(out.parser.name === 'SugarMLParser')
   t.truthy(Object.keys(out.locals).length === 0)
   t.truthy(out.filename === undefined)
   t.truthy(out.plugins.length === 7)
@@ -81,7 +80,7 @@ test('parserRules defaults', (t) => {
   const undo = standardRewired.__set__('include', (opts) => {
     t.truthy(opts.parserRules[0].test.exec)
   })
-  standardRewired()
+  standardRewired({ parserRules: [{ test: /wow/ }] })
   undo()
 })
 
@@ -91,11 +90,6 @@ test('retext default', (t) => {
   })
   standardRewired()
   undo()
-})
-
-test('parser false', (t) => {
-  const out = standard({ parser: false })
-  t.truthy(out.parser === undefined)
 })
 
 test('alternate parser', (t) => {
@@ -177,7 +171,7 @@ test('template option turns off evalCode', (t) => {
   t.is(out.plugins[3].name, '')
   t.is(out2.plugins[3].name, 'evalCodePlugin')
 
-  const markup = fs.readFileSync(path.join(fixtures, 'index.sgr'), 'utf8')
+  const markup = fs.readFileSync(path.join(fixtures, 'index.html'), 'utf8')
   return reshape(out)
     .process(markup)
     .then((res) => {
@@ -186,7 +180,7 @@ test('template option turns off evalCode', (t) => {
 })
 
 test('integration', (t) => {
-  const markup = fs.readFileSync(path.join(fixtures, 'index.sgr'), 'utf8')
+  const markup = fs.readFileSync(path.join(fixtures, 'index.html'), 'utf8')
   return reshape(standard())
     .process(markup)
     .then((res) => {
