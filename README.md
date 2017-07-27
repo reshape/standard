@@ -88,7 +88,7 @@ Any of these plugins can be customized by passing options described below.
 | **markdown** | Options passed in to [markdown-it](https://github.com/markdown-it/markdown-it) constructor | `{ typographer: true, linkify: true }` |
 | **markdownPlugins** | Plugins to be loaded by [markdown-it](https://github.com/markdown-it/markdown-it) parser. See below for more details. | |
 | **content** | Options passed to the [reshape-content](https://github.com/reshape/content) plugin | `{ md: renderMarkdown, mdi: renderMarkdownInline }` |
-| **parser** | custom html parser if desired. pass `false` to use the default html parser | `sugarml` |
+| **parser** | custom html parser if desired | |
 | **retext** | Plugins to be passed to the [reshape-retext](https://github.com/reshape/retext) plugin | `[smartypants]` ([ref](https://github.com/wooorm/retext-smartypants)) |
 | **locals** | Added directly to the output object, used when compiling a reshape template to html | `{}` |
 | **alias** | Alias option to be passed to the [include plugin](https://github.com/reshape/include#options) | |

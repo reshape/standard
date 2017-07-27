@@ -15,11 +15,9 @@
     "reshape-expressions": "^0.1.5",
     "reshape-include": "^1.0.0",
     "reshape-layouts": "^1.0.0",
-    "reshape-minify": "^1.0.0",
-    "reshape-parser": "^0.2.1",
+    "reshape-minify": "^1.1.0",
     "reshape-retext": "^1.0.0",
-    "retext-smartypants": "^3.0.0",
-    "sugarml": "^0.6.0"
+    "retext-smartypants": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.21.0",
@@ -28,7 +26,8 @@
     "reshape": "^0.4.0",
     "rewire": "^2.5.2",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.2",
+    "sugarml": "^0.6.0"
   },
   "engines": {
     "node": ">= 6.0.0"
