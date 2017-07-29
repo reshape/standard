@@ -3834,9 +3834,9 @@ reshape-plugin-util@^0.2.0, reshape-plugin-util@^0.2.1:
   dependencies:
     when "^3.7.7"
 
-reshape-retext@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/reshape-retext/-/reshape-retext-1.0.0.tgz#879730f6e5b5d108913e28ee210fc42fb8848cda"
+reshape-retext@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/reshape-retext/-/reshape-retext-1.0.1.tgz#015f7ca4162d4ae69359c26e122737c46262a793"
   dependencies:
     reshape-plugin-util "^0.2.0"
     retext "^5.0.0"
