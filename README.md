@@ -93,7 +93,7 @@ Any of these plugins can be customized by passing options described below.
 | **locals** | Added directly to the output object, used when compiling a reshape template to html | `{}` |
 | **alias** | Alias option to be passed to the [include plugin](https://github.com/reshape/include#options) | |
 | **parserRules** | Parser rules to be passed to the [include plugin](https://github.com/reshape/include#options) | |
-| **minify** | Minifies the html output by removing excess spaces and line breaks | `false` |
+| **minify** | Minifies the html output by removing excess spaces and line breaks, comments, and by minifying inline CSS, JS, SVG and JSON. Accepts a boolean or an object of options passed to [reshape-minify](https://github.com/reshape/minify) | `false` |
 | **appendPlugins** | Adds a single plugin or array of plugins after all the defaults | |
 | **prependPlugins** | Adds a single plugin or array of plugins before all the defaults | |
 | **template** | Set this to `true` if you are trying to output a client-side template function. | false |
