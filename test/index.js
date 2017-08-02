@@ -102,8 +102,13 @@ test('passed locals', (t) => {
   t.truthy(out.locals === 'test')
 })
 
-test('minify option', (t) => {
+test('minify option as a boolean', (t) => {
   const out = standard({ minify: true })
+  t.truthy(out.plugins[out.plugins.length - 1].name === 'minifyPlugin')
+})
+
+test('minify option as an object', (t) => {
+  const out = standard({ minify: { minifySvg: false, foo: 'bar' } })
   t.truthy(out.plugins[out.plugins.length - 1].name === 'minifyPlugin')
 })
 
