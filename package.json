@@ -8,25 +8,25 @@
   },
   "bugs": "https://github.com/reshape/standard/issues",
   "dependencies": {
-    "markdown-it": "^8.2.2",
+    "markdown-it": "^8.4.0",
     "reshape-beautify": "^0.1.2",
     "reshape-content": "^0.2.0",
-    "reshape-eval-code": "^0.3.3",
+    "reshape-eval-code": "^0.3.4",
     "reshape-expressions": "^0.1.5",
     "reshape-include": "^1.0.0",
     "reshape-layouts": "^1.0.0",
     "reshape-minify": "^1.1.0",
     "reshape-retext": "^1.0.1",
-    "retext-smartypants": "^3.0.0"
+    "retext-smartypants": "^3.0.1"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
-    "codecov": "^2.2.0",
-    "nyc": "^11.0.3",
+    "ava": "^0.22.0",
+    "codecov": "^2.3.0",
+    "nyc": "^11.1.0",
     "reshape": "^0.4.0",
     "rewire": "^2.5.2",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.2",
+    "standard": "^10.0.3",
     "sugarml": "^0.6.0"
   },
   "engines": {
