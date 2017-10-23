@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "ava": "^0.22.0",
-    "codecov": "^2.3.0",
+    "codecov": "^3.0.0",
     "nyc": "^11.1.0",
     "reshape": "^0.4.0",
     "rewire": "^2.5.2",
