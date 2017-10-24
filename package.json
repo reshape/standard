@@ -20,7 +20,7 @@
     "retext-smartypants": "^3.0.1"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.23.0",
     "codecov": "^2.3.0",
     "nyc": "^11.1.0",
     "reshape": "^0.4.0",
