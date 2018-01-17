@@ -10,7 +10,7 @@
   "dependencies": {
     "markdown-it": "^8.4.0",
     "reshape-beautify": "^0.1.2",
-    "reshape-content": "^0.2.0",
+    "reshape-content": "^0.3.0",
     "reshape-eval-code": "^0.3.4",
     "reshape-expressions": "^0.1.5",
     "reshape-include": "^1.0.0",
