@@ -20,9 +20,9 @@
     "retext-smartypants": "^3.0.1"
   },
   "devDependencies": {
-    "ava": "^0.23.0",
-    "codecov": "^2.3.0",
-    "nyc": "^11.1.0",
+    "ava": "^0.24.0",
+    "codecov": "^3.0.0",
+    "nyc": "^11.4.1",
     "reshape": "^0.4.0",
     "rewire": "^3.0.0",
     "snazzy": "^7.0.0",
