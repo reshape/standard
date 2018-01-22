@@ -1,7 +1,7 @@
 {
   "name": "reshape-standard",
   "description": "a standard plugin pack for reshape",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "author": "Jeff Escalante",
   "ava": {
     "verbose": "true"
