@@ -43,7 +43,7 @@ html
     p(mdi) **Look** at this [markdown](https://daringfireball.net/projects/markdown/)
 ```
 
-Note that it is easily possible to configure any of the options. If you like the whitespace syntax, you can add SugarCSS as parser (like `parser: sugarcss`), otherwise same features works with standard `<html>` syntax too.  
+Note that it is easily possible to configure any of the options. If you like the whitespace syntax, you can add SugarML as parser (like `parser: sugarml`), otherwise same features works with standard `<html>` syntax too.  
 If you don't like the `{{ }}` delimiters, you can quickly and easily change them. See the options below for more!
 
 ### Usage
