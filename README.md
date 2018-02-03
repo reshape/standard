@@ -43,7 +43,7 @@ html
     p(mdi) **Look** at this [markdown](https://daringfireball.net/projects/markdown/)
 ```
 
-Note that it is easily possible to configure any of the options. If you don't like the whitespace syntax, you can flip it off with `parser: false` and use the same features with standard `<html>` syntax. If you don't like the `{{ }}` delimiters, you can quickly and easily change them. See the options below for more!
+Note that it is easily possible to configure any of the options. If you like the whitespace syntax, you can add SugarCSS as parser (like `parser: sugarcss`), otherwise same features works with standard `<html>` syntax too. If you don't like the `{{ }}` delimiters, you can quickly and easily change them. See the options below for more!
 
 ### Usage
 
@@ -60,7 +60,7 @@ reshape(standard(/* options */))
 
 By default, the standard preset includes:
 
-- [sugarml](https://github.com/reshape/sugarml), provided as default parser
+- [sugarml](https://github.com/reshape/sugarml), use it if you want the whitespace syntax 
 - [reshape-expressions](https://github.com/reshape/expressions), default settings
 - [reshape-layouts](https://github.com/reshape/layouts), default settings
 - [reshape-include](https://github.com/reshape/include), default settings
