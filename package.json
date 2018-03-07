@@ -17,7 +17,8 @@
     "reshape-layouts": "^1.0.0",
     "reshape-minify": "^1.1.0",
     "reshape-retext": "^1.0.1",
-    "retext-smartypants": "^3.0.1"
+    "retext-smartypants": "^3.0.1",
+    "sugarml": "^0.6.0"
   },
   "devDependencies": {
     "ava": "^0.24.0",
@@ -26,8 +27,7 @@
     "reshape": "^0.4.2",
     "rewire": "^3.0.0",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.3",
-    "sugarml": "^0.6.0"
+    "standard": "^10.0.3"
   },
   "engines": {
     "node": ">= 6.0.0"
