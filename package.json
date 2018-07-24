@@ -27,7 +27,7 @@
     "rewire": "^3.0.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
-    "sugarml": "^0.6.0"
+    "sugarml": "^0.7.0"
   },
   "engines": {
     "node": ">= 6.0.0"
